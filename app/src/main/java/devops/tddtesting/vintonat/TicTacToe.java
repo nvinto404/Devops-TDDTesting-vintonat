@@ -24,7 +24,7 @@ public class TicTacToe {
     }
 
     public boolean isGameOver() {
-        return isRowTaken() || isColumnTaken() || isDiagonalTaken();
+        return isRowTaken() || isColumnTaken() || isDiagonalTaken() || isBoardFull();
     }
 
     private boolean isRowTaken() {
@@ -48,6 +48,17 @@ public class TicTacToe {
     private boolean isDiagonalTaken() {
         return (board[0][0] != ' ' && board[0][0] == board[1][1] && board[1][1] == board[2][2])
                 || (board[0][2] != ' ' && board[0][2] == board[1][1] && board[1][1] == board[2][0]);
+    }
+
+    private boolean isBoardFull() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == ' ') {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 }
