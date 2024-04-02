@@ -71,6 +71,18 @@ public class TicTacToe {
         }
     }
 
+    public void placePiece(int x, int y) {
+        if (x < 0 || x >= 3 || y < 0 || y >= 3) {
+            throw new RuntimeException("Piece placed outside the game board");
+        }
+
+        if (board[x][y] != ' ') {
+            throw new RuntimeException("Piece already placed at this position");
+        }
+
+        board[x][y] = 'X'; // Hier nehmen ich an, dass 'X' das Symbol für den Spieler ist
+    }
+
 }
 
 
