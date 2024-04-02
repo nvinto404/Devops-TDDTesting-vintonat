@@ -41,4 +41,15 @@ public void testGameOverWhenAllFieldsInRowTaken() {
         game.makeMove(0, 2, 'X');
         assertTrue(game.isGameOver());
     }
+
+@Test
+public void testGameOverWhenAllFieldsInColumnTaken() {
+        TicTacToe game = new TicTacToe();
+        game.makeMove(0, 0, 'O');
+        game.makeMove(1, 0, 'O');
+        game.makeMove(2, 0, 'O');
+        assertTrue(game.isGameOver());
+    }
+
+
 }
