@@ -14,6 +14,14 @@ public class TicTacToe {
     public char[][] getBoard() {
         return board;
     }
+
+    public void makeMove(int row, int col, char playerSymbol) {
+        if (board[row][col] == ' ') {
+            board[row][col] = playerSymbol;
+        } else {
+            throw new IllegalArgumentException("Field already taken");
+        }
+    }
 }
 
 
