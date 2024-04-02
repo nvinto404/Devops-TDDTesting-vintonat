@@ -19,5 +19,15 @@ public void testCreateEmptyBoard() {
     assertArrayEquals(expectedBoard, game.getBoard());
 }
 
-
+@Test
+public void testPlayerCanMakeMoveIfFieldNotTaken() {
+    TicTacToe game = new TicTacToe();
+    char[][] expectedBoard = {
+        {' ', ' ', ' '},
+        {' ', 'X', ' '},
+        {' ', ' ', ' '}
+    };
+    game.makeMove(1, 1, 'X');
+    assertArrayEquals(expectedBoard, game.getBoard());
+}
 }
