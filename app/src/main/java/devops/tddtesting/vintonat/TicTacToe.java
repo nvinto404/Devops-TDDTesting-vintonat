@@ -22,6 +22,11 @@ public class TicTacToe {
             throw new IllegalArgumentException("Field already taken");
         }
     }
+
+    public boolean isGameOver() {
+        return isRowTaken() || isColumnTaken() || isDiagonalTaken() || isBoardFull();
+    }
 }
+
 
 
