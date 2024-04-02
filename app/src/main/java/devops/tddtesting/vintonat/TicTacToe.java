@@ -2,6 +2,7 @@ package devops.tddtesting.vintonat;
 
 public class TicTacToe {
     private char[][] board;
+    private boolean isGameOver;
 
     public TicTacToe() {
         board = new char[3][3];
@@ -24,7 +25,7 @@ public class TicTacToe {
     }
 
     public boolean isGameOver() {
-        return isRowTaken() || isColumnTaken() || isDiagonalTaken() || isBoardFull();
+        return isRowTaken() || isColumnTaken() || isDiagonalTaken() || isBoardFull() || isGameOver;
     }
 
     private boolean isRowTaken() {
@@ -81,6 +82,12 @@ public class TicTacToe {
         }
         board[x][y] = 'X'; // Hier nehmen ich an, dass 'X' das Symbol für den Spieler ist
     }
+
+    public void playerEndsGamePrematurely() {
+        // Setze den Spielstatus auf beendet durch true
+        isGameOver = true;
+    }
+    
 
 }
 
