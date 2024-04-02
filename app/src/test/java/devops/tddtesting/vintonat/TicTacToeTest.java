@@ -112,4 +112,14 @@ public void testGameOverWhenAllFieldsInColumnTaken() {
         game.placePiece(4, 2);
     });
 }
+
+@Test
+public void whenYOutsideBoardException() {
+    TicTacToe ttt = new TicTacToe();
+    Assertions.assertThrows(RuntimeException.class, () -> {
+        ttt.placePiece(2, 4);
+    });
 }
+}
+
+
