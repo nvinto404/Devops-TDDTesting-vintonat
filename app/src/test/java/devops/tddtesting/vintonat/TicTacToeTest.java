@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.Assertions;
 
 public class TicTacToeTest {
 
@@ -101,5 +104,12 @@ public void testGameOverWhenAllFieldsInColumnTaken() {
         // Überprüfen, ob das Spiel wieder läuft
         assertFalse(game.isGameOver());
     }
-    
+
+    @Test
+    public void testPiecePlacedOutsideXAxisThrowsException() {
+        TicTacToe game = new TicTacToe();
+        Assertions.assertThrows(RuntimeException.class, () -> {
+        game.placePiece(4, 2);
+    });
+}
 }
