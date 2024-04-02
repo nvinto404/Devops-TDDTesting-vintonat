@@ -115,11 +115,21 @@ public void testGameOverWhenAllFieldsInColumnTaken() {
 
 @Test
 public void whenYOutsideBoardException() {
-    TicTacToe ttt = new TicTacToe();
+    TicTacToe game = new TicTacToe();
     Assertions.assertThrows(RuntimeException.class, () -> {
-        ttt.placePiece(2, 4);
+        game.placePiece(2, 4);
     });
 }
+
+@Test
+public void testPlayerEndsGamePrematurely() {
+    TicTacToe game = new TicTacToe();
+    game.placePiece(0, 0); 
+    game.placePiece(0, 1); 
+    game.playerEndsGamePrematurely();
+    assertTrue(game.isGameOver());
 }
+}
+
 
 

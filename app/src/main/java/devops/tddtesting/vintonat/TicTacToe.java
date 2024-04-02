@@ -79,7 +79,6 @@ public class TicTacToe {
         if (board[x][y] != ' ') {
             throw new RuntimeException("Piece already placed at this position");
         }
-
         board[x][y] = 'X'; // Hier nehmen ich an, dass 'X' das Symbol für den Spieler ist
     }
 
