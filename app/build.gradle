@@ -34,7 +34,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'devops.tddtesting.vintonat.App'
+    mainClass = 'devops.tddtesting.vintonat.TicTacToe'
 }
 
 tasks.named('test') {
