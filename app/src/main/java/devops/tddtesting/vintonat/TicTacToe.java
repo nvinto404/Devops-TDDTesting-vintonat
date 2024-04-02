@@ -1,4 +1,5 @@
 package devops.tddtesting.vintonat;
+import java.util.Scanner;
 
 public class TicTacToe {
     private char[][] board;
@@ -87,9 +88,55 @@ public class TicTacToe {
         // Setze den Spielstatus auf beendet durch true
         isGameOver = true;
     }
-    
-   
 
+    
+    public static void main(String[] args) {
+        TicTacToe game = new TicTacToe();
+        printBoard(game);
+    
+        Scanner scanner = new Scanner(System.in);
+        boolean gameOver = false;
+        char currentPlayer = 'X'; 
+        
+        while (!gameOver) {
+            System.out.println("Player " + currentPlayer + ", enter your move (row -enter- column): ");
+            int row = scanner.nextInt();
+            int col = scanner.nextInt();
+        
+            try {
+                game.makeMove(row, col, currentPlayer);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                continue; 
+            }
+        
+            printBoard(game);
+        
+            if (game.isGameOver()) {
+                System.out.println("Game Over! Player " + currentPlayer + " wins!");
+                gameOver = true;
+            }
+        
+            currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+        }
+        
+        scanner.close();
+            }
+    
+    public static void printBoard(TicTacToe game) {
+        char[][] board = game.getBoard();
+    
+        System.out.println("-------------");
+        for (int i = 0; i < 3; i++) {
+            System.out.print("| ");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(board[i][j] + " | ");
+            }
+            System.out.println();
+            System.out.println("-------------");
+        }
+    }
+    
 }
 
 
