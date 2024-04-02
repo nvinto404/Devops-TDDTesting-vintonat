@@ -101,4 +101,5 @@ public void testGameOverWhenAllFieldsInColumnTaken() {
         // Überprüfen, ob das Spiel wieder läuft
         assertFalse(game.isGameOver());
     }
+    
 }
