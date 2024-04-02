@@ -26,6 +26,15 @@ public class TicTacToe {
     public boolean isGameOver() {
         return isRowTaken() || isColumnTaken() || isDiagonalTaken() || isBoardFull();
     }
+
+    private boolean isRowTaken() {
+        for (int i = 0; i < 3; i++) {
+            if (board[i][0] != ' ' && board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 
