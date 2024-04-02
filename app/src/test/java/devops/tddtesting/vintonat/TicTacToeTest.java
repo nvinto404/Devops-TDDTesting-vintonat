@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Assertions;
 
 public class TicTacToeTest {
@@ -30,4 +32,13 @@ public void testPlayerCanMakeMoveIfFieldNotTaken() {
     game.makeMove(1, 1, 'X');
     assertArrayEquals(expectedBoard, game.getBoard());
 }
+
+@Test
+public void testGameOverWhenAllFieldsInRowTaken() {
+        TicTacToe game = new TicTacToe();
+        game.makeMove(0, 0, 'X');
+        game.makeMove(0, 1, 'X');
+        game.makeMove(0, 2, 'X');
+        assertTrue(game.isGameOver());
+    }
 }
